@@ -35,8 +35,6 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-I haven't learned anything from CodePath
-
 ## License
 
     Copyright [2016] [Kevin Ho]
