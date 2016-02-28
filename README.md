@@ -51,7 +51,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
     See the License for the specific language governing permissions and
     limitations under the License.
     
-    # Project 5 - *Twitter*
+# Project 5 - *Twitter*
 
 Time spent: **20** hours spent in total
 
