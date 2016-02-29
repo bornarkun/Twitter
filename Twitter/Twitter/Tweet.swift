@@ -10,7 +10,7 @@ import UIKit
 
 class Tweet: NSObject {
 
-    var user:User?
+    var user: User?
     
     var text: NSString?
     var timestamp: NSDate?
@@ -32,6 +32,7 @@ class Tweet: NSObject {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         timestamp = formatter.dateFromString(timestampString)
+
         }
     }
     

@@ -13,28 +13,39 @@ import BDBOAuth1Manager
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
         
         if User.currentUser != nil {
-            print("There is a current user")
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
-            
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsTabBarController")
             window?.rootViewController = vc
         }
         
         NSNotificationCenter.defaultCenter().addObserverForName(User.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (NSNotification) -> Void in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()
+            let vc = self.storyboard.instantiateInitialViewController()
             
             self.window?.rootViewController = vc
         }
         
+        UITabBar.appearance().tintColor = UIColor.cyanColor()
+        
         return true
+        
+    }
+    
+    func userDidLogout()
+    {
+        let vc = storyboard.instantiateInitialViewController()! as UIViewController
+        window?.rootViewController = vc
+    }
+    
+    func userDidTweet()
+    {
+        let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsTabBarController") as UIViewController
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {

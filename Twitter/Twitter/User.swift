@@ -14,10 +14,16 @@ class User: NSObject {
     var screenname: NSString?
     var profileUrl: NSURL?
     var tagline: NSString?
+    var profileBannerURL: NSURL?
+    
+    var userTweetCount: Int?
+    var userFollowersCount: Int?
+    var userFollowingCount: Int?
     
     var dictionary: NSDictionary?
     
     init(dictionary: NSDictionary) {
+        
         self.dictionary = dictionary
         
         name = dictionary["name"] as? String
@@ -27,6 +33,10 @@ class User: NSObject {
         if let profileUrlString = profileUrlString {
             profileUrl = NSURL(string: profileUrlString)
         }
+        
+        userTweetCount = dictionary["statuses_count"] as? Int
+        userFollowingCount = dictionary["friends_count"] as? Int
+        userFollowersCount = dictionary["followers_count"] as? Int
         
         tagline = dictionary["description"] as? String
     }
@@ -41,7 +51,7 @@ class User: NSObject {
                 let defaults = NSUserDefaults.standardUserDefaults()
                 
                 let userData = defaults.objectForKey("currentUserData") as? NSData
-                
+        
                 if let userData = userData {
                     let dictionary = try! NSJSONSerialization.JSONObjectWithData(userData, options: []) as! NSDictionary
                     _currentUser = User(dictionary: dictionary)

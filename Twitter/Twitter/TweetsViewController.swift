@@ -17,8 +17,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Twitter"
-        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -69,14 +67,27 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.logout()
     }
 
-    /*
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        let whoIsSender = (sender is UITableViewCell ? true : false)
+        
+        if whoIsSender {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let detailViewController = segue.destinationViewController as!DetailViewController
+            detailViewController.tweet = tweet
+        }
+        
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+        
     }
-    */
+
 
 }
