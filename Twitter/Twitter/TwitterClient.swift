@@ -65,7 +65,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error)
         })
     }
-    
+
     func currentAccount(success: (User) -> (), failure: (NSError) -> ()) {
         GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
             print("account: \(response)")

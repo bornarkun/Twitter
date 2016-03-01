@@ -29,7 +29,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             if (tweets == tweets) {
                 
                 self.tableView.reloadData()
-           }
+            }
             
         }, failure: { (error: NSError) -> () in
                 print(error.localizedDescription)
@@ -41,7 +41,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         if tweets != nil {
             
-            return tweets.count //Deleted exclaimation mark
+            return tweets.count
             
         } else {
             

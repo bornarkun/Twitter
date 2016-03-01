@@ -31,6 +31,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         
+        self.tableView.estimatedRowHeight = 200
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
         username.text = User.currentUser?.name as String?
         handle.text = "@\((User.currentUser?.screenname)!)"
         profileImage.setImageWithURL((User.currentUser?.profileUrl)!)
@@ -38,9 +41,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         followers.text = "\((User.currentUser?.userFollowersCount)!)"
         following.text = "\((User.currentUser?.userFollowingCount)!)"
         tweetsNumber.text = "\((User.currentUser?.userTweetCount)!)"
-        
-        //self.tweets = tweets
-        self.tableView.reloadData()
         
         // Do any additional setup after loading the view.
     }
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell", forIndexPath: indexPath) as! ProfileCell
         
         cell.tweet = tweets![indexPath.row]
