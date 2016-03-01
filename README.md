@@ -53,7 +53,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
     
 # Project 5 - *Twitter*
 
-Time spent: **20** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
@@ -63,7 +63,7 @@ The following **required** functionality is completed:
 - [X] Profile page:
    - [X] Contains the user header view
    - [X] Contains a section with the users basic stats: # tweets, # following, # followers
-- [] Home Timeline: Tapping on a user image should bring up that user's profile page
+- [X] Home Timeline: Tapping on a user image should bring up that user's profile page
 - [X] Compose Page: User can compose a new tweet by tapping on a compose button.
 
 The following **optional** features are implemented:
@@ -90,7 +90,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/JBrERr7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/3fO5mpZ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
